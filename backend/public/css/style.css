@@ -1,0 +1,132 @@
+/* Global Styles */
+body {
+  background-color: #f8f9fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 60px;
+}
+
+/* Card Styles */
+.listing-card,
+.item-card {
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.listing-card:hover,
+.item-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card Image */
+.card-img-top,
+.show-img {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Show Page Card */
+.show-card {
+  margin-top: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.edit-btn,
+.delete-btn {
+  width: 100px;
+}
+
+.btns {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+/* Form Styling */
+form .form-label {
+  font-weight: 600;
+}
+
+form .form-control:focus {
+  border-color: #343a40;
+  box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.25);
+}
+
+/* Overall navbar style */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 10px 20px;
+}
+
+/* Brand/Logo styling */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007BFF;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Nav link styling */
+.navbar-nav .nav-link {
+  color: #333;
+  padding: 8px 14px;
+  margin: 0 4px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Hover effect */
+.navbar-nav .nav-link:hover {
+  background-color: #f0f0f0;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+/* Auth buttons */
+.navbar-nav .nav-link b {
+  font-weight: 600;
+}
+
+/* Responsive adjustments (optional but recommended) */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 1rem;
+  }
+}
+
+
+.f-info-links {
+  display: flex;              /* Display items in a row */
+  justify-content: center;    /* Center items horizontally */
+  gap: 20px;                  /* Space between links */
+  padding: 10px 0;            /* Vertical padding */
+  background-color: #f5f5f5;  /* Light background */
+}
+
+.f-info-links p {
+  margin: 0;                  /* Remove default paragraph margin */
+}
+
+.f-info-links a {
+  text-decoration: none;      /* Remove underline */
+  color: #333;                /* Text color */
+  font-weight: 500;           /* Medium font weight */
+  transition: color 0.3s;     /* Smooth color change on hover */
+}
+
+.f-info-links a:hover {
+  color: #007BFF;             /* Change color on hover */
+}

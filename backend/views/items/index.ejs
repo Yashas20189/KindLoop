@@ -1,0 +1,22 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-3">
+  <% allItems.forEach(item => { %>
+    <a href="/items/<%= item._id %>" class="listing-link">
+      <div class="card col listing-card">
+        <img src="<%= item.image.url %>" class="card-img-top" alt="item_img">
+        
+        <div class="card-img-overlay"></div>
+
+        <div class="card-body">
+          <h5 class="card-title"><%= item.title %></h5>
+          <p class="card-text">
+            <strong>Type:</strong> <%= item.type %> <br>
+            <strong>Location:</strong> <%= item.location %>, <%= item.country %> <br>
+            <strong>Description:</strong> <%= item.description %>
+          </p>
+        </div>
+      </div>
+    </a>
+  <% }) %>
+</div>

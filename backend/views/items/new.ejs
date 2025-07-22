@@ -1,0 +1,57 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="row mt-5">
+  <div class="col-md-8 offset-md-2">
+
+    <div class="card p-4 shadow-sm">
+      <h3 class="mb-4 text-center"> Create a New Item </h3>
+
+      <form method="POST" action="/items">
+
+        <!-- Title -->
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" name="item[title]" class="form-control" placeholder="Add a catchy title" required>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input type="text" name="item[description]" class="form-control" placeholder="Short description" required>
+        </div>
+
+        <!-- Image Upload -->
+        <div class="mb-3">
+          <label for="image" class="form-label">Image Upload</label>
+          <input type="file" name="item[image]" class="form-control" required>
+        </div>
+
+        <!-- Type -->
+        <div class="mb-3">
+          <label for="type" class="form-label">Type</label>
+          <select name="item[type]" class="form-select" required>
+            <option value="">Choose one</option>
+            <option value="give">Give</option>
+            <option value="lend">Lend</option>
+            <option value="request">Request</option>
+          </select>
+        </div>
+
+        <!-- Location -->
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input type="text" name="item[location]" class="form-control" placeholder="Enter location" required>
+        </div>
+
+        <!-- Country -->
+        <div class="mb-3">
+        <label for="country" class="form-label">Country</label>
+        <input type="text" name="item[country]" class="form-control" placeholder="Enter country" required>
+        </div>
+        
+        <button class="btn btn-dark edit-btn mt-3">Add Item</button>
+      </form>
+    </div>
+
+  </div>
+</div>
