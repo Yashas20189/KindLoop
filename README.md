@@ -56,5 +56,5 @@ KindLoop is a community-driven platform where individuals can **donate or share 
 
 #### Clone the Repository
 ```bash
-git clone https://github.com/your-username/kindloop.git
+git clone https://github.com/Yashas20189/KindLoop.git
 cd kindloop
