@@ -1,0 +1,49 @@
+<%- layout("/layouts/boilerplate") %>
+
+<h1>Fetching your location...</h1>
+<p id="location-display">Please wait...</p>
+
+<script>
+  window.onload = function () {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(sendLocation, showError);
+    } else {
+      document.getElementById("location-display").innerText =
+        "Geolocation is not supported by your browser.";
+    }
+  };
+
+  async function sendLocation(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    document.getElementById("location-display").innerText =
+      `Latitude: ${latitude}, Longitude: ${longitude}`;
+
+    try {
+      const response = await fetch('/save-location', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ latitude, longitude })
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to save location on the server");
+      }
+
+      const data = await response.json();
+      console.log("Location saved:", data);
+    } catch (error) {
+      console.error("Fetch error:", error);
+      document.getElementById("location-display").innerText +=
+        "\nError saving location to server.";
+    }
+  }
+
+  function showError(error) {
+    document.getElementById("location-display").innerText =
+      "Failed to get location: " + error.message;
+  }
+</script>

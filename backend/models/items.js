@@ -21,8 +21,9 @@ const itemSchema = new Schema({
     }
   },
   location: {
-    type: String,
-    required: true,
+    latitude: Number,
+    longitude: Number,
+    address: String
   },
   country: {
     type: String,

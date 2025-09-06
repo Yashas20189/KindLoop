@@ -4,32 +4,29 @@
   <div class="col-8 offset-2">
 
     <h3>Edit Your Item</h3>
-    <form method="POST" action="/items/<%= item._id %>?_method=PUT" novalidate class="needs-validation">
+    <form method="POST" action="/items/<%= item._id %>?_method=PUT" enctype="multipart/form-data">
       
       <!-- Title -->
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" name="item[title]" value="<%= item.title %>" class="form-control" required>
-        <div class="invalid-feedback">Please enter a catchy title!</div>
       </div>
 
       <!-- Description -->
       <div class="mb-3">
         <label for="description" class="form-label">Description</label>
         <textarea name="item[description]" class="form-control" required><%= item.description %></textarea>
-        <div class="invalid-feedback">Please enter a short description!</div>
       </div>
 
       <!-- Image URL -->
       <div class="mb-3">
-        <label for="image" class="form-label">Image Link</label>
+        <label for="image" class="form-label">Upload New Image</label>
         <input
-          name="item[image][url]"
+          name="item[image]"
           id="image"
           value="<%= item.image.url %>"
-          type="text"
+          type="file"
           class="form-control"
-          required
         />
       </div>
 
@@ -41,14 +38,12 @@
           <option value="lend" <%= item.type === 'lend' ? 'selected' : '' %>>Lend</option>
           <option value="request" <%= item.type === 'request' ? 'selected' : '' %>>Request</option>
         </select>
-        <div class="invalid-feedback">Please select a valid type</div>
       </div>
 
       <!-- Location -->
       <div class="mb-3">
         <label for="location" class="form-label">Location</label>
         <input type="text" name="item[location]" value="<%= item.location %>" class="form-control" required>
-        <div class="invalid-feedback">Please enter a valid location!</div>
       </div>
 
       <button class="btn btn-dark edit-btn mt-3">Update Item</button>

@@ -1,21 +1,17 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
 
 const userSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-
-  email: {
+  username:{
     type: String,
     required: true,
     unique: true,
   },
-
-  password: {
+  email: {
     type: String,
     required: true,
+    unique: true,
   },
 
   isStudent: {
@@ -34,10 +30,12 @@ const userSchema = new Schema({
 
   badges: [
     {
-      type: String, // e.g., "Helper", "Connector", etc.
+      type: String,
     },
   ],
-  
 });
+
+// Let passport-local-mongoose manage password + use email as the login field
+userSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 
 module.exports = mongoose.model("User", userSchema);
